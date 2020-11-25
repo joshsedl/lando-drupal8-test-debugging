@@ -15,7 +15,7 @@ fi
 
 echo "Composer installing drupal core."
 cd /app/web
-composer install
+composer update --with-dependencies
 
 if [ $FIRST_RUN ]; then
     # Upgrade PHPUnit to work with PHP 7, add drush, console, selenium
