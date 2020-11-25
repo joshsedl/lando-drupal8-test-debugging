@@ -14,7 +14,7 @@ else
 fi
 
 echo "Composer installing drupal core."
-cd /app/web
+cd /app
 composer install
 
 #if [ $FIRST_RUN ]; then
