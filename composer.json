@@ -10,7 +10,7 @@
   },
   "require": {
     "drupal/core-composer-scaffold": "^8.9",
-    "drupal/core-recommended": "^8.9",
+    "drupal/core-recommended": "^8.9"
   },
   "require-dev": {
     "drupal/core-dev": "^8.9",
@@ -35,8 +35,22 @@
     }
   },
   "scripts": {
-    "pre-update-cmd": [],
-    "post-update-cmd": []
+    "pre-update-cmd": [
+      "echo \"Exporting Drupal configuration before composer update\"",
+      "command -v drush cex -y >/dev/null 2>&1 || { echo \"drush command required but currently not available. Skipping.\" >&2; exit 0; }",
+      "echo \"Executing git commit -a before composer update (if any files were changed)\"",
+      "git add .",
+      "git diff-index --quiet HEAD || git commit --verbose -am \"Automatic commit before composer update\""
+    ],
+    "post-update-cmd": [
+      "echo \"Composer package changes (composer-lock-diff):\"",
+      "composer-lock-diff",
+      "echo \"# `date` (`whoami`):\" >> log/composer-update-history.md",
+      "composer-lock-diff --md >> log/composer-update-history.md",
+      "echo \"Executing git commit -a after composer update (if any files were changed)\"",
+      "git add .",
+      "git diff-index --quiet HEAD || git commit --verbose -am \"Automatic commit after composer update\""
+    ]
   },
   "extra": {
     "drupal-scaffold": {

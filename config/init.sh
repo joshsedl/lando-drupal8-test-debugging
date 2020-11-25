@@ -7,8 +7,9 @@ if [ -d 'web' ]; then
     FIRST_RUN=0
 else
     # Do a git checkout of the current D8 core.
-    echo "Cloning drupal core."
-    git clone --depth 1 --branch 8.9.x https://git.drupal.org/project/drupal.git web
+    echo "Running composer install."
+    # #webksde#JP20201125: composer based installation instead!
+    # git clone --depth 1 --branch 8.9.x https://git.drupal.org/project/drupal.git web
     FIRST_RUN=1
 fi
 
