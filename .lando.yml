@@ -26,7 +26,6 @@ config:
 services:
   appserver:
     run:
-      - composer install --no-scripts
       - 'bash config/init.sh'
     overrides:
       environment:
