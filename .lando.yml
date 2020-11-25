@@ -41,6 +41,11 @@ services:
     # Add a static db port for easy bookmarking and access through SQL clients.
     # Ideally you would set this in a .lando.local.yml.
     portforward: 33006
+  mailhog:
+    type: mailhog
+    portforward: true
+    hogfrom:
+      - appserver
 
 # This will add some tools from the containers to the command line of your OS.
 # https://docs.devwithlando.io/config/tooling.html
