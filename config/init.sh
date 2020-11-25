@@ -8,7 +8,7 @@ if [ -d 'web' ]; then
 else
     # Do a git checkout of the current D8 core.
     echo "Cloning drupal core."
-    git clone --depth 1 https://git.drupal.org/project/drupal.git web
+    git clone --depth 1 --branch 8.9.x https://git.drupal.org/project/drupal.git web
     FIRST_RUN=1
 fi
 
@@ -18,7 +18,7 @@ composer install
 
 if [ $FIRST_RUN ]; then
     # Upgrade PHPUnit to work with PHP 7, add drush, console, selenium
-    composer require --update-with-dependencies "phpunit/phpunit ^6.0" "drush/drush" "drupal/console" "joomla-projects/selenium-server-standalone"
+    composer require -W "phpunit/phpunit ^6.0" "drush/drush" "drupal/console" "joomla-projects/selenium-server-standalone"
 fi
 
 # Create file dirs.
