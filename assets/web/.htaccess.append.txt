@@ -1,0 +1,6 @@
+# ------------------------------------------------------------------
+# Custom [web-root]/.htaccess additions
+# from /assets folder, appended by composer automatically:
+
+
+# ------------------------------------------------------------------
