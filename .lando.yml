@@ -52,11 +52,11 @@ tooling:
   phpunit:
     service: appserver
     description: "Run PHP Unit tests: lando phpunit"
-    cmd: "/app/web/vendor/bin/phpunit --debug --configuration /app/web/core/phpunit.xml --printer=\\Drupal\\Tests\\Listeners\\HtmlOutputPrinter"
+    cmd: "/app/vendor/bin/phpunit --debug --configuration /app/web/core/phpunit.xml --printer=\\Drupal\\Tests\\Listeners\\HtmlOutputPrinter"
   drush:
-    cmd: "/app/web/vendor/bin/drush --root=/app/web --uri=http://drupal8phpunit.lndo.site"
+    cmd: "/app/vendor/bin/drush --root=/app/web --uri=http://drupal8phpunit.lndo.site"
   drupal:
-    cmd: "/app/web/vendor/bin/drupal --root=/app/web"
+    cmd: "/app/vendor/bin/drupal --root=/app/web"
   xdebug-on:
     service: appserver
     description: Enable xdebug.

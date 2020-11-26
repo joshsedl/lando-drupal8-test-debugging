@@ -12,3 +12,21 @@
 
 # Ignore composer.lock
 composer.lock
+
+# ------------------------------------------------------------------
+# Custom .gitignore additions from /assets folder,
+# appended by composer automatically:
+
+# ## webks default file structure ignores: ##
+# Ignore private files
+/files/private/
+
+# Temporary diretory
+/tmp/
+
+# Log directory
+/log/
+
+# ------------------------------------------------------------------
+/.editorconfig
+/.gitattributes
