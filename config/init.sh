@@ -7,8 +7,7 @@ if [ -d 'web' ]; then
     echo "Web folder already exists. No git install executed."
 else
     FIRST_RUN=1
-    echo "Removing my own git repository ('lando-drupal8-test-debugging')
-to use it for the application instead."
+    echo "Removing my own git repository ('lando-drupal8-test-debugging') to use it for the application instead."
     cd /app
     rm -rf .git
     echo "Intializing empty git repository"
