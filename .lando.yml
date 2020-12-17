@@ -45,6 +45,10 @@ services:
     # Add a static db port for easy bookmarking and access through SQL clients.
     # Ideally you would set this in a .lando.local.yml.
     portforward: 33006
+    creds:
+      user: admin
+      password: admin
+      database: drupal8phpunit
   mailhog:
     type: mailhog
     portforward: true
