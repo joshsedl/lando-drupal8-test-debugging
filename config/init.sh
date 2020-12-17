@@ -125,4 +125,4 @@ echo 'Installing project specific dependencies:'
 drush en -y layout_builder media media_library
 # Install additional helper modules:
 composer require drupal/admin_toolbar drupal/devel drupal/devel_php drupal/devel_debug_log drupal/coder drupal/examples drupal/stage_file_proxy drupal/hacked
-drush en -y admin_toolbar devel devel_php devel_debug_log examples stage_file_proxy hacked
+drush en -y admin_toolbar admin_toolbar_tools admin_toolbar_search devel devel_php devel_debug_log examples stage_file_proxy hacked
