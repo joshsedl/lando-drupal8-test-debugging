@@ -47,6 +47,7 @@
     "post-update-cmd": [
       "echo \"Composer package changes (composer-lock-diff):\"",
       "composer-lock-diff",
+      "touch log/composer-update-history.md",
       "echo \"# `date` (`whoami`):\" >> log/composer-update-history.md",
       "composer-lock-diff --md >> log/composer-update-history.md",
       "echo \"Executing git commit -a after composer update (if any files were changed)\"",
