@@ -51,11 +51,11 @@ services:
     type: phpmyadmin
     hosts:
       - database
-  proxy:
-    mailhog:
-      - mailhog.drupal8phpunit.lndo.site
-    phpmyadmin:
-      - phpmyadmin.drupal8phpunit.lndo.site
+proxy:
+  mailhog:
+    - mailhog.drupal8phpunit.lndo.site
+  phpmyadmin:
+    - phpmyadmin.drupal8phpunit.lndo.site
 # This will add some tools from the containers to the command line of your OS.
 # https://docs.devwithlando.io/config/tooling.html
 tooling:
