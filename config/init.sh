@@ -17,9 +17,8 @@ else
 
     # Do a git checkout of the current D8 core.
     echo "Running composer install."
-    # #webksde#JP20201125: composer based installation instead!
-    # git clone --depth 1 --branch 8.9.x https://git.drupal.org/project/drupal.git web
-    composer install
+    # Install without scripts to prevent problems with composer-lock-diff on install:
+    composer install --no-scripts
 fi
 
 #if [ $FIRST_RUN ]; then
