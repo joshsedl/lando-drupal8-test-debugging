@@ -45,7 +45,10 @@ services:
     portforward: true
     hogfrom:
       - appserver
-
+  myservice:
+    type: phpmyadmin
+    hosts:
+      - database
 # This will add some tools from the containers to the command line of your OS.
 # https://docs.devwithlando.io/config/tooling.html
 tooling:

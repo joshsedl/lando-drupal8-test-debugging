@@ -3,8 +3,8 @@
 # Install Drupal.
 cd $LANDO_MOUNT
 if [ -d 'web' ]; then
-    echo "Web folder already exists. No git install executed."
     FIRST_RUN=0
+    echo "Web folder already exists. No git install executed."
 else
     FIRST_RUN=1
     echo "Removing my own git repository ('lando-drupal8-test-debugging')
