@@ -38,20 +38,20 @@
   },
   "scripts": {
     "pre-update-cmd": [
-      "#echo \"Exporting Drupal configuration before composer update\"",
-      "#command -v drush cex -y >/dev/null 2>&1 || { echo \"drush command required but currently not available. Skipping.\" >&2; exit 0; }",
-      "#echo \"Executing git commit -a before composer update (if any files were changed)\"",
-      "#git add .",
-      "#git diff-index --quiet HEAD || git commit --verbose -am \"Automatic commit before composer update\""
+      "echo \"Exporting Drupal configuration before composer update\"",
+      "command -v drush cex -y >/dev/null 2>&1 || { echo \"drush command required but currently not available. Skipping.\" >&2; exit 0; }",
+      "echo \"Executing git commit -a before composer update (if any files were changed)\"",
+      "git add .",
+      "git diff-index --quiet HEAD || git commit --verbose -am \"Automatic commit before composer update\""
     ],
     "post-update-cmd": [
-      "#echo \"Composer package changes (composer-lock-diff):\"",
-      "#composer-lock-diff",
-      "#echo \"# `date` (`whoami`):\" >> log/composer-update-history.md",
-      "#composer-lock-diff --md >> log/composer-update-history.md",
-      "#echo \"Executing git commit -a after composer update (if any files were changed)\"",
-      "#git add .",
-      "#git diff-index --quiet HEAD || git commit --verbose -am \"Automatic commit after composer update\""
+      "echo \"Composer package changes (composer-lock-diff):\"",
+      "composer-lock-diff",
+      "echo \"# `date` (`whoami`):\" >> log/composer-update-history.md",
+      "composer-lock-diff --md >> log/composer-update-history.md",
+      "echo \"Executing git commit -a after composer update (if any files were changed)\"",
+      "git add .",
+      "git diff-index --quiet HEAD || git commit --verbose -am \"Automatic commit after composer update\""
     ]
   },
   "extra": {
