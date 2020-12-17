@@ -13,9 +13,13 @@ else
     FIRST_RUN=1
 fi
 
-echo "Composer installing drupal core."
-cd /app
-composer install
+if [ $FIRST_RUN ]; then
+    echo "Initialize empty git repository"
+    cd /app
+    git init
+    git add .
+    git commit -am "Initial commit."
+fi
 
 #if [ $FIRST_RUN ]; then
     # Upgrade PHPUnit to work with PHP 7, add drush, console, selenium
