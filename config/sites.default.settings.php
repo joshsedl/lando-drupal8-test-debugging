@@ -289,7 +289,7 @@ $config_directories = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'MxnQKjysVmigO8vw_k5QQwDEM3Ri08frS7YuodoxqTZYOIykCWqVzAMT4X8NKKF9JCdJ81_-qw';
+$settings['hash_salt'] = '';
 
 /**
  * Deployment identifier.
@@ -828,3 +828,51 @@ $settings['trusted_host_patterns'] = array(
   '^localhost$',
   "^$local_hostname$",
 );
+
+// ############################# #webksde START #############################
+// ----------------------------- Directories: ------------------------------
+// Private directory path:
+$settings['file_public_path'] = 'sites/default/files';
+
+// Private directory path:
+$settings['file_private_path'] = '../files/private';
+
+// Temp directory path:
+$settings["file_temp_path"] = "../tmp";
+$config['system.file']['path.temporary'] = $settings["file_temp_path"];
+
+// Sync directory path:
+$settings['config_sync_directory'] = '../files/sync';
+
+// ----------------------------- Environment indicator ------------------------
+if(strpos($_SERVER['HTTP_HOST'], 'dev.') !== FALSE || !empty($lando_info)){
+  // DEV:
+  $settings['simple_environment_indicator'] = '#FF3300 @DEV #FFF';
+} elseif (strpos($_SERVER['HTTP_HOST'], 'staging.') !== FALSE || strpos($_SERVER['HTTP_HOST'], 'preview.') !== FALSE){
+  // STAGING / PREVIEW:
+  $settings['simple_environment_indicator'] = '#FFCC00 @PREVIEW #000';
+} elseif (strpos($_SERVER['HTTP_HOST'], 'vorlage.') !== FALSE){
+  // VORLAGE:
+  $settings['simple_environment_indicator'] = '#83B53E @VORLAGE #FFF';
+} else {
+  // LIVE
+  $settings['simple_environment_indicator'] = '#327EBD @LIVE #FFF';
+}
+
+// ----------------------------- Error reporting: -----------------------------
+///* -- Escape this line to enable error reporting inpage.
+if (isset($_REQUEST['DEBUG'])) {
+  error_reporting(-1);  // Have PHP complain about absolutely everything.
+  $conf['error_level'] = 2;  // Show all messages on your screen
+  ini_set('display_errors', TRUE);  // These lines give you content on WSOD pages.
+  ini_set('display_startup_errors', TRUE);
+  ini_set('memory_limit', '4069M');
+
+  // Load the disabled DEVELOPMENT SETTINGS for this WDEBUG call:
+  if (file_exists($app_root . '/' . $site_path . '/__settings.DEVELOPMENT.php')) {
+    include_once $app_root . '/' . $site_path . '/__settings.DEVELOPMENT.php';
+  }
+}
+// */
+
+// ############################# #webksde END #############################

@@ -42,6 +42,15 @@ mkdir -p -m 777 /app/log
 if [ ! -e "/app/web/sites/default/settings.php" ]; then
     cp /app/config/sites.default.settings.php /app/web/sites/default/settings.php
 fi
+if [ ! -e "/app/web/sites/default/services.yml" ]; then
+    cp /app/config/sites.default.services.yml /app/web/sites/default/services.yml
+fi
+if [ ! -e "/app/web/sites/default/__settings.DEVELOPMENT.php" ]; then
+    cp /app/config/sites.default.__settings.DEVELOPMENT.php /app/web/sites/default/__settings.DEVELOPMENT.php
+fi
+if [ ! -e "/app/web/sites/default/__services.DEVELOPMENT.yml" ]; then
+    cp /app/config/sites.default.__services.DEVELOPMENT.yml /app/web/sites/default/__services.DEVELOPMENT.yml
+fi
 if [ ! -L "/app/files/public" ]; then
     ln -s /app/web/sites/default/files /app/files/public
 fi
