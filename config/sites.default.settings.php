@@ -845,20 +845,22 @@ $config['system.file']['path.temporary'] = $settings["file_temp_path"];
 $settings['config_sync_directory'] = '../files/sync';
 
 // ----------------------------- Environment indicator ------------------------
-if(strpos($_SERVER['HTTP_HOST'], 'dev.') !== FALSE || !empty($_ENV['LANDO_INFO'])){
-  // DEV:
-  $settings['simple_environment_indicator'] = '#FF3300 @DEV #FFF';
-} elseif (strpos($_SERVER['HTTP_HOST'], 'staging.') !== FALSE || strpos($_SERVER['HTTP_HOST'], 'preview.') !== FALSE){
-  // STAGING / PREVIEW:
-  $settings['simple_environment_indicator'] = '#FFCC00 @PREVIEW #000';
-} elseif (strpos($_SERVER['HTTP_HOST'], 'vorlage.') !== FALSE){
-  // VORLAGE:
-  $settings['simple_environment_indicator'] = '#83B53E @VORLAGE #FFF';
-} else {
-  // LIVE
-  $settings['simple_environment_indicator'] = '#327EBD @LIVE #FFF';
+if(!empty($_SERVER['HTTP_HOST'])){
+  // Only use on webserver, not bash:
+  if(strpos($_SERVER['HTTP_HOST'], 'dev.') !== FALSE || !empty($_ENV['LANDO_INFO'])){
+    // DEV:
+    $settings['simple_environment_indicator'] = '#FF3300 @DEV #FFF';
+  } elseif (strpos($_SERVER['HTTP_HOST'], 'staging.') !== FALSE || strpos($_SERVER['HTTP_HOST'], 'preview.') !== FALSE){
+    // STAGING / PREVIEW:
+    $settings['simple_environment_indicator'] = '#FFCC00 @PREVIEW #000';
+  } elseif (strpos($_SERVER['HTTP_HOST'], 'vorlage.') !== FALSE){
+    // VORLAGE:
+    $settings['simple_environment_indicator'] = '#83B53E @VORLAGE #FFF';
+  } else {
+    // LIVE
+    $settings['simple_environment_indicator'] = '#327EBD @LIVE #FFF';
+  }
 }
-
 // ----------------------------- Error reporting: -----------------------------
 ///* -- Escape this line to enable error reporting inpage.
 if (isset($_REQUEST['DEBUG'])) {
