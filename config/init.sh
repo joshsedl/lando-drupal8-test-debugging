@@ -14,19 +14,6 @@ else
     git init
     git add .
     git commit -am "Initial commit."
-
-    # Do a git checkout of the current D8 core.
-    echo "Running composer install."
-    # Install without scripts to prevent problems with composer-lock-diff on install:
-    composer install --no-scripts
-    echo "Committing changes to git."
-    git add .
-    git commit -am "After composer install"
-    echo "Running composer update --with-dependencies."
-    composer update --with-dependencies
-    echo "Committing changes to git."
-    git add .
-    git commit -am "After composer update"
 fi
 
 #if [ $FIRST_RUN ]; then
@@ -43,6 +30,22 @@ mkdir -p -m 777 /app/files/private
 mkdir -p -m 777 /app/files/sync
 mkdir -p -m 777 /app/tmp
 mkdir -p -m 777 /app/log
+
+if [ $FIRST_RUN ]; then
+    cd /app
+    # Run composer install based on composer.json in the app directory:
+    echo "Running composer install."
+    # Install without scripts to prevent problems with composer-lock-diff on install:
+    composer install --no-scripts
+    echo "Committing changes to git."
+    git add .
+    git commit -am "After composer install"
+    echo "Running composer update --with-dependencies."
+    composer update --with-dependencies
+    echo "Committing changes to git."
+    git add .
+    git commit -am "After composer update"   
+fi
 
 # Copy the settings and symlink the file dirs.
 if [ ! -e "/app/web/sites/default/settings.php" ]; then
@@ -110,3 +113,6 @@ if [ ! -f /app/web/core/phpunit.xml ]; then
     sed -i 's/beStrictAboutOutputDuringTests="true"/beStrictAboutOutputDuringTests="false" verbose="true"/' phpunit.xml
     sed -i 's/<\/phpunit>/<logging><log type="testdox-text" target="\/app\/web\/sites\/default\/files\/testdox.txt"\/><\/logging><\/phpunit>/' phpunit.xml
 fi
+
+git add .
+git commit -am "After init.sh - ready now!"   
