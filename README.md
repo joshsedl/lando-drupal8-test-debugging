@@ -12,6 +12,9 @@ The purpose of this lando "recipe" is to provide an easy setup for Drupal 8 core
 4. Remove git from the directory as we need a clean git instance for the project itself: `rm -rf .git`
 5. Run 'lando start' from inside this directory.
 
+#### TLDR:
+`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git && rm -rf ./lando-drupal8-test-debugging/.git && cd lando-drupal8-test-debugging && lando start`
+
 ### Run!
 
 You should now be able to run Drupal 8 / 9 core tests. From the command line it looks like this: 
