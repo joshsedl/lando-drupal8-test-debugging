@@ -10,9 +10,6 @@
 *.sql
 *.sql*
 
-# Ignore composer.lock
-composer.lock
-
 # ------------------------------------------------------------------
 # Custom .gitignore additions from /assets folder,
 # appended by composer automatically:
