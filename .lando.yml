@@ -29,6 +29,9 @@ services:
   appserver:
     run:
       - 'bash config/init.sh'
+      # Install additional helper modules:
+      - 'composer require drupal/admin_toolbar drupal/devel drupal/devel_php drupal/devel_debug_log drupal/coder drupal/examples drupal/stage_file_proxy drupal/hacked'
+      - 'drush en admin_toolbar devel devel_php devel_debug_log coder examples stage_file_proxy hacked'
     overrides:
       environment:
         # Enable PHPStorm XDebug with CLI.
