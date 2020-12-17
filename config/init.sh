@@ -59,9 +59,9 @@ if [ ! -L "files/simpletest" ]; then
 fi
 
 if [ $FIRST_RUN ]; then
-    echo "Installing default site."
+    echo "Installing default site with admin/admin"
     cd /app/web
-    drush site-install -y
+    drush site-install -y --account-name=admin --account-pass=admin --site-name=lando-drupal8-test-debugging
     cd /app/
 fi
 

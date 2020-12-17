@@ -12,7 +12,9 @@ config:
   # Set the webserver
   via: apache
   # Set the php version.
-  php: 7.3
+  php: 7.4
+  # Set the composer version
+  composer_version: '2.0.8'
   # Set the webroot dir.
   webroot: web
   # Enable xdebug using "lando xdebug-on" tooling defined below.
@@ -45,10 +47,15 @@ services:
     portforward: true
     hogfrom:
       - appserver
-  myservice:
+  phpmyadmin:
     type: phpmyadmin
     hosts:
       - database
+  proxy:
+    mailhog:
+      - mailhog.drupal8phpunit.lndo.site
+    phpmyadmin:
+      - phpmyadmin.drupal8phpunit.lndo.site
 # This will add some tools from the containers to the command line of your OS.
 # https://docs.devwithlando.io/config/tooling.html
 tooling:

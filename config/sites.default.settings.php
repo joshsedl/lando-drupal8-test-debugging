@@ -845,7 +845,7 @@ $config['system.file']['path.temporary'] = $settings["file_temp_path"];
 $settings['config_sync_directory'] = '../files/sync';
 
 // ----------------------------- Environment indicator ------------------------
-if(strpos($_SERVER['HTTP_HOST'], 'dev.') !== FALSE || !empty($lando_info)){
+if(strpos($_SERVER['HTTP_HOST'], 'dev.') !== FALSE || !empty($_ENV['LANDO_INFO'])){
   // DEV:
   $settings['simple_environment_indicator'] = '#FF3300 @DEV #FFF';
 } elseif (strpos($_SERVER['HTTP_HOST'], 'staging.') !== FALSE || strpos($_SERVER['HTTP_HOST'], 'preview.') !== FALSE){
