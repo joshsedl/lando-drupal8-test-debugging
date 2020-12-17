@@ -19,6 +19,14 @@ else
     echo "Running composer install."
     # Install without scripts to prevent problems with composer-lock-diff on install:
     composer install --no-scripts
+    echo "Committing changes to git."
+    git add .
+    git commit -am "After composer install"
+    echo "Running composer update --with-dependencies."
+    composer update --with-dependencies
+    echo "Committing changes to git."
+    git add .
+    git commit -am "After composer update"
 fi
 
 #if [ $FIRST_RUN ]; then
