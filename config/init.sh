@@ -55,11 +55,28 @@ fi
 
 if [ ! -f /app/web/.gitignore ]; then
     # Ignore changed core files
-    echo "composer.json
+    echo "# Ignore core composer files:
+composer.json
 composer.lock
-vendor
-sites/default/settings.php
-sites/default/files
+# Ignore core when managing all of a project's dependencies with Composer
+# including Drupal core.
+# core
+
+# Ignore dependencies that are managed with Composer.
+# Generally you should only ignore the root vendor directory. It's important
+# that core/assets/vendor and any other vendor directories within contrib or
+# custom module, theme, etc., are not ignored unless you purposely do so.
+/vendor/
+
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+sites/*/services*.yml
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+
+# Ignore SimpleTest multi-site environment.
 sites/simpletest
 " > /app/web/.gitignore
 fi
