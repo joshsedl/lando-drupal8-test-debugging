@@ -70,7 +70,7 @@ fi
 if [ $FIRST_RUN ]; then
     echo "Installing default site with default credentials: "admin"/"admin""
     cd /app/web
-    drush site-install minimal -y --account-name=admin --account-pass=admin --site-name=lando-drupal8-test-debugging
+    drush site-install -y --account-name=admin --account-pass=admin --site-name=lando-drupal8-test-debugging
     cd /app/
 fi
 
