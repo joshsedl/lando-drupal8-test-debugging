@@ -3,22 +3,24 @@
 # Install Drupal.
 cd $LANDO_MOUNT
 if [ -d 'web' ]; then
-    echo "Web folder already exists. No git clone executed."
+    echo "Web folder already exists. No git install executed."
     FIRST_RUN=0
 else
+    FIRST_RUN=1
+    echo "Removing my own git repository ('lando-drupal8-test-debugging')
+to use it for the application instead."
+    cd /app
+    rm -rf .git
+    echo "Intializing empty git repository"
+    git init
+    git add .
+    git commit -am "Initial commit."
+
     # Do a git checkout of the current D8 core.
     echo "Running composer install."
     # #webksde#JP20201125: composer based installation instead!
     # git clone --depth 1 --branch 8.9.x https://git.drupal.org/project/drupal.git web
-    FIRST_RUN=1
-fi
-
-if [ $FIRST_RUN ]; then
-    echo "Initialize empty git repository"
-    cd /app
-    git init
-    git add .
-    git commit -am "Initial commit."
+    composer install
 fi
 
 #if [ $FIRST_RUN ]; then
@@ -32,8 +34,9 @@ cd /app
 mkdir -p -m 777 /app/web/sites/default/files/phpunit
 mkdir -p -m 777 /app/web/sites/simpletest
 mkdir -p -m 777 /app/files/private
-mkdir -p -m 777 /app/files/tmp
 mkdir -p -m 777 /app/files/sync
+mkdir -p -m 777 /app/tmp
+mkdir -p -m 777 /app/log
 
 # Copy the settings and symlink the file dirs.
 if [ ! -e "/app/web/sites/default/settings.php" ]; then
