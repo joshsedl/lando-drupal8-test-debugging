@@ -29,7 +29,7 @@ services:
   appserver:
     build_as_root:
       - apt-get install php-curl -qq -y && apt-get update -qq
-      - docker-php-ext-install curl
+      #- docker-php-ext-install curl
     run:
       - 'bash config/init.sh && config/init.custom.sh'
     overrides:
