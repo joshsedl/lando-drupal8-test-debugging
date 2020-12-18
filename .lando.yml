@@ -39,9 +39,7 @@ services:
           # Fix linux docker host.docker.internal resolving.
         - 'config/linux-hosts.sh:/scripts/linux-hosts.sh'
   database:
-    # Add a static db port for easy bookmarking and access through SQL clients.
-    # Ideally you would set this in a .lando.local.yml.
-    portforward: 33006
+    portforward: true
     creds:
       user: admin
       password: admin
