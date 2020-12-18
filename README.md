@@ -4,6 +4,9 @@
 The purpose of this lando "recipe" is to provide an easy setup for Drupal 8 core development, especially writing and debugging tests. This is geared towards PHPStorm, but should also work with other tools. 
 
 ## Setup 
+### IMPORTANT:
+!! When you execute 'lando start' for the first time, THIS cloned git repository will be deleted and replaced by your new project specific git repository !!
+That is what you'll like when using this for Drupal development, but so never run a lando command if you're working with this repository itself.
 
 ### To start:
 1. Make sure your software stack is installed and up to date: you need an up to date version of [lando](https://github.com/lando/lando/releases), Docker, Chrome and java.
