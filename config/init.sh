@@ -118,4 +118,4 @@ git add .
 git commit -am "After init.sh - ready now!"
 
 # Run custom initialization.
-source init.custom.sh
+source /config/init.custom.sh
