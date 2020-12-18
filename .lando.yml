@@ -27,8 +27,6 @@ config:
 # We can add additional services here or even override some configuration.
 services:
   appserver:
-    build_as_root:
-      - docker-php-ext-install curl
     run:
       - 'bash config/init.sh && config/init.custom.sh'
     overrides:
