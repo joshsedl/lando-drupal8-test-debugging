@@ -1,4 +1,4 @@
-#https://github.com/JPustkuchen/lando-drupal9-test-debugging
+#https://github.com/JPustkuchen/lando-drupal8-test-debugging
 name: drupal9phpunit
 # https://docs.devwithlando.io/tutorials/drupal9.html
 recipe: drupal9

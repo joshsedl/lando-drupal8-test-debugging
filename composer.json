@@ -21,7 +21,7 @@
     "oomphinc/composer-installers-extender": "^2.0",
     "joachim-n/composer-manifest": "^1.1",
     "drush/drush": "^10.0",
-    "phpunit/phpunit": "^6.0",
+    "phpunit/phpunit": "^8.4.1",
     "joomla-projects/selenium-server-standalone": "^3"
   },
   "conflict": {
@@ -33,7 +33,7 @@
     "optimize-autoloader": true,
     "sort-packages": true,
     "platform": {
-      "php": "7.3.24"
+      "php": "7.4.13"
     }
   },
   "scripts": {
