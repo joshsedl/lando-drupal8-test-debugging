@@ -44,7 +44,7 @@ if [ $FIRST_RUN ]; then
     composer update --with-dependencies
     echo "Committing changes to git."
     git add .
-    git commit -am "After composer update"
+    git diff-index --quiet HEAD || git commit -am "After composer update"
 fi
 
 # Copy the settings and symlink the file dirs.
@@ -115,4 +115,4 @@ if [ ! -f /app/web/core/phpunit.xml ]; then
 fi
 
 git add .
-git commit -am "After init.sh - ready now!"
+git diff-index --quiet HEAD || git commit -am "After init.sh - ready now!"
