@@ -1,4 +1,4 @@
-# lando-drupal8-test-debugging
+# lando-drupal8-test-debugging (Drupal 8 / 9 composer based version)
 
 ## Purpose
 The purpose of this lando "recipe" is to provide an easy setup for Drupal 8 core development, especially writing and debugging tests. This is geared towards PHPStorm, but should also work with other tools. 
