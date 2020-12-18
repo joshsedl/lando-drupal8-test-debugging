@@ -123,19 +123,6 @@
     {
       "type": "composer",
       "url": "https://asset-packagist.org"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "kenwheeler/slick",
-        "version": "dev-master-patched",
-        "type": "drupal-library",
-        "_readme": "!! PATCHED !! We're using the patch from here https://github.com/kenwheeler/slick/pull/3674/commits/2a68c0bf58026d66838f9656d93527046646b4fb Without this patch Slick removes all events from subelements, e.g. photoswipe images within Slick.",
-        "dist": {
-          "url": "https://github.com/webksde/slick/archive/patch-1.zip",
-          "type": "zip"
-        }
-      }
     }
   ]
 }
