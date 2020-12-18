@@ -28,8 +28,7 @@ config:
 services:
   appserver:
     build_as_root:
-      - apt-get update && apt-get install -y curl
-      - docker-php-ext-install curl
+      - apt-get install -y libcurl4-openssl-dev && docker-php-ext-install curl
     run:
       - 'bash config/init.sh && config/init.custom.sh'
     overrides:
