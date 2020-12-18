@@ -1,13 +1,13 @@
-#https://github.com/JPustkuchen/lando-drupal8-test-debugging
-name: drupal8phpunit
-# https://docs.devwithlando.io/tutorials/drupal8.html
-recipe: drupal8
+#https://github.com/JPustkuchen/lando-drupal9-test-debugging
+name: drupal9phpunit
+# https://docs.devwithlando.io/tutorials/drupal9.html
+recipe: drupal9
 
 # Requires lando 3.0.0-rc2 or higher.
 # You can put local (non-git) overrides in .lando.local.yml
 
 # Add some default configuration for the recipe here. Which will be passed to all the services within the recipe.
-# https://docs.devwithlando.io/recipes/drupal8.html
+# https://docs.devwithlando.io/recipes/drupal9.html
 config:
   # Set the webserver
   via: apache
@@ -52,7 +52,7 @@ services:
     creds:
       user: admin
       password: admin
-      database: drupal8phpunit
+      database: drupal9phpunit
   mailhog:
     type: mailhog
     portforward: true
@@ -64,9 +64,9 @@ services:
       - database
 proxy:
   mailhog:
-    - mailhog.drupal8phpunit.lndo.site
+    - mailhog.drupal9phpunit.lndo.site
   phpmyadmin:
-    - phpmyadmin.drupal8phpunit.lndo.site
+    - phpmyadmin.drupal9phpunit.lndo.site
 # This will add some tools from the containers to the command line of your OS.
 # https://docs.devwithlando.io/config/tooling.html
 tooling:
@@ -75,7 +75,7 @@ tooling:
     description: "Run PHP Unit tests: lando phpunit"
     cmd: "/app/vendor/bin/phpunit --debug --configuration /app/web/core/phpunit.xml --printer=\\Drupal\\Tests\\Listeners\\HtmlOutputPrinter"
   drush:
-    cmd: "/app/vendor/bin/drush --root=/app/web --uri=http://drupal8phpunit.lndo.site"
+    cmd: "/app/vendor/bin/drush --root=/app/web --uri=http://drupal9phpunit.lndo.site"
   drupal:
     cmd: "/app/vendor/bin/drupal --root=/app/web"
   xdebug-on:
