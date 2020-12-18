@@ -5,7 +5,7 @@ cd /app
 # Custom drupal installation
 ## Project specific - put into separate file!
 echo 'Installing project specific dependencies:'
-#drush pm-uninstall -y big_pipe comment color contact help history rdf shortcut tour update
+drush pm-uninstall -y big_pipe color contact help history rdf shortcut tour update
 # Install required core modules:
 drush en -y layout_builder media media_library
 # Install additional helper modules:
