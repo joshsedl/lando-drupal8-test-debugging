@@ -13,4 +13,4 @@ composer require drupal/admin_toolbar drupal/devel drupal/devel_php drupal/devel
 drush en -y admin_toolbar admin_toolbar_tools admin_toolbar_search devel devel_php devel_debug_log examples stage_file_proxy hacked
 
 git add .
-git commit -am "After init.custom.sh"
+git diff-index --quiet HEAD || git commit -am "After init.custom.sh"
