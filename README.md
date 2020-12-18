@@ -13,7 +13,10 @@ The purpose of this lando "recipe" is to provide an easy setup for Drupal 8 core
 5. Run 'lando start' from inside this directory.
 
 #### TLDR:
-`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git && rm -rf ./lando-drupal8-test-debugging/.git && cd lando-drupal8-test-debugging && lando start`
+##### 8.x:
+`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 8.x && rm -rf ./lando-drupal8-test-debugging/.git && cd lando-drupal8-test-debugging && lando start`
+##### 9.x:
+`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 9.x && rm -rf ./lando-drupal8-test-debugging/.git && cd lando-drupal8-test-debugging && lando start`
 
 ### Run!
 
