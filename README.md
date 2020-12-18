@@ -1,4 +1,4 @@
-# lando-drupal8-test-debugging
+# lando-drupal8-test-debugging (Drupal 8 / 9 composer based version)
 
 ## Purpose
 The purpose of this lando "recipe" is to provide an easy setup for Drupal 8 core development, especially writing and debugging tests. This is geared towards PHPStorm, but should also work with other tools. 
@@ -8,16 +8,15 @@ The purpose of this lando "recipe" is to provide an easy setup for Drupal 8 core
 ### To start:
 1. Make sure your software stack is installed and up to date: you need an up to date version of [lando](https://github.com/lando/lando/releases), Docker, Chrome and java.
 2. Download the the repo to a new empty project directory: `git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git`
-3. Change into the cloned directory: 'cd lando-drupal8-test-debugging'
+3. Change into the cloned directory: 'cd lando-drupal8-test-debugging' (or rename it first as in TLDR)
 4. Remove git from the directory as we need a clean git instance for the project itself: `rm -rf .git`
 5. Run 'lando start' from inside this directory.
 
 #### TLDR:
 ##### 8.x (latest Drupal 8 (^8) stable release)
-`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 8.x && rm -rf ./lando-drupal8-test-debugging/.git && cd lando-drupal8-test-debugging && lando start`
+`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 8.x drupal8phpunit && cd drupal8phpunit && rm -rf .git && lando start`
 ##### 9.x (latest Drupal 9 (^9) stable release)
-`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 9.x && rm -rf ./lando-drupal8-test-debugging/.git && cd lando-drupal8-test-debugging && lando start`
-
+`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 9.x drupal9phpunit && cd drupal9phpunit && rm -rf .git && lando start`
 ### Run!
 
 You should now be able to run Drupal 8 / 9 core tests. From the command line it looks like this: 
