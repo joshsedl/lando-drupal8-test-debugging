@@ -137,10 +137,6 @@ if (isset($_REQUEST['WDEBUG']) && file_exists($app_root . '/' . $site_path . '/_
 
 // ----- Environment indicator -----
 $settings['simple_environment_indicator'] = '#3988B9 @DEVELOPMENT';
-// INDICATE VORLAGE:
-if (!empty($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] == 'www.drupal8.vorlagen.webks.de') {
-  $settings['simple_environment_indicator'] = '#333333 @VORLAGE';
-}
 // ----- Environment indicator END -----
 
 // #webksde#JP20180322: Make unused dev files temporary to auto-delete them:
