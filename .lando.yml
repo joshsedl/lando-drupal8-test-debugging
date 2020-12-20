@@ -28,7 +28,7 @@ config:
 services:
   appserver:
     run:
-      - 'bash config/init.sh && config/init.custom.sh'
+      - 'bash config/init.sh || config/init.custom.sh'
     overrides:
       environment:
         # Enable PHPStorm XDebug with CLI.
