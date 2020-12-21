@@ -6,11 +6,11 @@ cd /app
 ## Project specific - put into separate file!
 echo 'Installing project specific dependencies:'
 # Enable bartik default theme
-drush then bartik
+drush then -y bartik
 drush config-set -Y system.theme default bartik
 
 # Enable claro admin theme
-drush then claro
+drush then -y claro
 drush config-set -Y system.theme admin claro
 
 # Install required core modules:
