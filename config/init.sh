@@ -65,7 +65,7 @@ if [ $FIRST_RUN ]; then
     echo "Installing Drupal site with installation profile: $DRUPAL_INSTALL_PROFILE"
     echo "!! Default admin credentials: 'admin' / 'admin' !!"
     cd /app/web
-    drush site-install -y --root=/app/web --uri=http://drupal9phpunit.lndo.site --account-name=admin --account-pass=admin --site-name=lando-drupal9-test-debugging
+    drush site-install $DRUPAL_INSTALL_PROFILE -y --root=/app/web --uri=http://drupal9phpunit.lndo.site --account-name=admin --account-pass=admin --site-name=lando-drupal9-test-debugging
     cd /app/
 fi
 
