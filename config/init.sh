@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variables:
+## Drupal installation profile 'minimal' if not overwritten parameter:
 DRUPAL_INSTALL_PROFILE="${1:minimal}"
-echo $DRUPAL_INSTALL_PROFILE
 
 # Install Drupal.
 cd $LANDO_MOUNT
@@ -65,7 +65,7 @@ if [ $FIRST_RUN ]; then
     echo "Installing Drupal site with installation profile: $DRUPAL_INSTALL_PROFILE"
     echo "!! Default admin credentials: 'admin' / 'admin' !!"
     cd /app/web
-    drush site-install $DRUPAL_INSTALL_PROFILE -y --account-name=admin --account-pass=admin --site-name=lando-drupal9-test-debugging
+    drush site-install -y --account-name=admin --account-pass=admin --site-name=lando-drupal9-test-debugging
     cd /app/
 fi
 
