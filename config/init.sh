@@ -67,7 +67,8 @@ if [ ! -L "files/simpletest" ]; then
 fi
 
 if [ $FIRST_RUN ]; then
-    echo "Installing minimal site with default credentials: "admin"/"admin""
+    echo "Installing Drupal site with installation profile: $DRUPAL_INSTALL_PROFILE"
+    echo "!! Default admin credentials: 'admin' / 'admin' !!"
     cd /app/web
     drush site-install $DRUPAL_INSTALL_PROFILE -y --account-name=admin --account-pass=admin --site-name=lando-drupal9-test-debugging
     cd /app/
