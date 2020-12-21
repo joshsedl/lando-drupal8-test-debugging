@@ -116,3 +116,6 @@ fi
 
 git add .
 git diff-index --quiet HEAD || git commit -am "After init.sh - ready now!"
+
+# Exist successfully to let follow-up commands run:
+exit 0
