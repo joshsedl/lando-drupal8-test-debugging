@@ -20,11 +20,6 @@ else
     git commit -am "Initial commit."
 fi
 
-#if [ $FIRST_RUN ]; then
-    # Upgrade PHPUnit to work with PHP 7, add drush, console, selenium
-    # composer require -W "phpunit/phpunit ^6.0" "drush/drush" "drupal/console" "joomla-projects/selenium-server-standalone"
-#fi
-
 # Create file dirs.
 echo "Creating dirs and symlinks."
 cd /app
