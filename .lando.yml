@@ -28,7 +28,7 @@ config:
 services:
   appserver:
     run:
-      - config/init.sh minimal && config/init.custom.sh
+      - 'bash config/init.sh minimal'
     overrides:
       environment:
         # Enable PHPStorm XDebug with CLI.

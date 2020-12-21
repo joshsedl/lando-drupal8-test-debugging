@@ -17,7 +17,7 @@ drush config:set -y --root=/app/web system.theme admin claro
 drush en -y --root=/app/web automated_cron block ckeditor config contextual block_custom menu_link_content dblog field field_ui filter menu_ui node path quickedit taxonomy editor update user views views_ui text options link image file datetime
 
 # Install contrib modules:
-composer require -W drupal/admin_toolbar drupal/devel drupal/devel_php drupal/devel_debug_log drupal/coder drupal/examples drupal/stage_file_proxy
+composer require --with-dependencies drupal/admin_toolbar drupal/devel drupal/devel_php drupal/devel_debug_log drupal/coder drupal/examples drupal/stage_file_proxy
 # Enable contrib modules:
 drush en -y --root=/app/web admin_toolbar admin_toolbar_tools admin_toolbar_search devel devel_php devel_debug_log examples stage_file_proxy hacked
 
