@@ -35,7 +35,7 @@ if [ $FIRST_RUN ]; then
     # Run composer install based on composer.json in the app directory:
     echo "Running composer install."
     # Install without scripts to prevent problems with composer-lock-diff on install:
-    composer install --no-scripts
+    composer update --with-dependencies
     echo "Committing changes to git."
     git add .
     git diff-index --quiet HEAD || git commit -am "After composer update"
