@@ -1,11 +1,9 @@
-#https://github.com/JPustkuchen/lando-drupal8-test-debugging
+## Lando Drupal 8 Test Debugging: ##
+# https://github.com/JPustkuchen/lando-drupal8-test-debugging
+# You can put local overrides in .lando.local.yml
 name: drupal8phpunit
 # https://docs.devwithlando.io/tutorials/drupal8.html
 recipe: drupal8
-
-# Requires lando 3.0.0-rc2 or higher.
-# You can put local (non-git) overrides in .lando.local.yml
-
 # Add some default configuration for the recipe here. Which will be passed to all the services within the recipe.
 # https://docs.devwithlando.io/recipes/drupal8.html
 config:
@@ -28,6 +26,8 @@ config:
 services:
   appserver:
     run:
+      # Run global init.sh first with installation profile, afterwards custom
+      # initializations.
       - config/init.sh minimal && config/init.custom.sh
     overrides:
       environment:
@@ -39,17 +39,24 @@ services:
           # Fix linux docker host.docker.internal resolving.
         - 'config/linux-hosts.sh:/scripts/linux-hosts.sh'
   database:
+    # Allow external access by a random mysql port.
+    # From within other containers you can always access the database via
+    # database.drupal8phpunit.lndo.site:3306
     portforward: true
     creds:
       user: admin
       password: admin
       database: drupal8phpunit
   mailhog:
+    # Mailhog can be accessed at "mailhog.drupal8phpunit.lndo.site"
+    # (see proxy below)
     type: mailhog
     portforward: true
     hogfrom:
       - appserver
   phpmyadmin:
+    # PhpMyAdmin can be accessed at "phpmyadmin.drupal8phpunit.lndo.site"
+    # (see proxy below)
     type: phpmyadmin
     hosts:
       - database
