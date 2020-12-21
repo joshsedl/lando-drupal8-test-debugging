@@ -14,3 +14,6 @@ drush en -y admin_toolbar admin_toolbar_tools admin_toolbar_search devel devel_p
 
 git add .
 git diff-index --quiet HEAD || git commit -am "After init.custom.sh"
+
+# Exist successfully to let follow-up commands run:
+exit 0
