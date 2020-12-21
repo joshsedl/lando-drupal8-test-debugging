@@ -35,6 +35,7 @@ if [ $FIRST_RUN ]; then
     # Run composer install based on composer.json in the app directory:
     echo "Running composer install."
     # Install without scripts to prevent problems with composer-lock-diff on install:
+    # Composer UPDATE required instead of INSTALL to run scaffold!
     composer update --with-dependencies
     echo "Committing changes to git."
     git add .
