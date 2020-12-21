@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /app
+cd /app/web
 
 # Custom drupal installation
 ## Project specific - put into separate file!
