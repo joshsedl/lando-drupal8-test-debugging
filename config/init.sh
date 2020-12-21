@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Variables:
+DRUPAL_INSTALL_PROFILE="${1:minimal}"
+echo $DRUPAL_INSTALL_PROFILE
+
 # Install Drupal.
 cd $LANDO_MOUNT
 if [ -d 'web' ]; then
@@ -39,11 +43,6 @@ if [ $FIRST_RUN ]; then
     composer install --no-scripts
     echo "Committing changes to git."
     git add .
-    git diff-index --quiet HEAD || git commit -am "After composer install"
-    echo "Running composer update --with-dependencies."
-    composer update --with-dependencies
-    echo "Committing changes to git."
-    git add .
     git diff-index --quiet HEAD || git commit -am "After composer update"
 fi
 
@@ -68,9 +67,9 @@ if [ ! -L "files/simpletest" ]; then
 fi
 
 if [ $FIRST_RUN ]; then
-    echo "Installing default site with default credentials: "admin"/"admin""
+    echo "Installing minimal site with default credentials: "admin"/"admin""
     cd /app/web
-    drush site-install -y --account-name=admin --account-pass=admin --site-name=lando-drupal8-test-debugging
+    drush site-install $DRUPAL_INSTALL_PROFILE -y --account-name=admin --account-pass=admin --site-name=lando-drupal8-test-debugging
     cd /app/
 fi
 
