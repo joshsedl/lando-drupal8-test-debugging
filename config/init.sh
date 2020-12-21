@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Variables:
+DRUPAL_INSTALL_PROFILE="${1:minimal}"
+echo $DRUPAL_INSTALL_PROFILE
+
 # Install Drupal.
 cd $LANDO_MOUNT
 if [ -d 'web' ]; then
@@ -7,7 +11,7 @@ if [ -d 'web' ]; then
     echo "Web folder already exists. No git install executed."
 else
     FIRST_RUN=1
-    echo "Removing my own git repository ('lando-drupal8-test-debugging') to use it for the application instead."
+    echo "Removing my own git repository ('lando-drupal9-test-debugging') to use it for the application instead."
     cd /app
     rm -rf .git
     echo "Intializing empty git repository"
@@ -39,11 +43,6 @@ if [ $FIRST_RUN ]; then
     composer install --no-scripts
     echo "Committing changes to git."
     git add .
-    git commit -am "After composer install"
-    echo "Running composer update --with-dependencies."
-    composer update --with-dependencies
-    echo "Committing changes to git."
-    git add .
     git diff-index --quiet HEAD || git commit -am "After composer update"
 fi
 
@@ -70,7 +69,7 @@ fi
 if [ $FIRST_RUN ]; then
     echo "Installing minimal site with default credentials: "admin"/"admin""
     cd /app/web
-    drush site-install -y --account-name=admin --account-pass=admin --site-name=lando-drupal8-test-debugging
+    drush site-install $DRUPAL_INSTALL_PROFILE -y --account-name=admin --account-pass=admin --site-name=lando-drupal9-test-debugging
     cd /app/
 fi
 
