@@ -17,9 +17,9 @@ That is what you'll like when using this for Drupal development, but so never ru
 
 #### TLDR:
 ##### 8.x (latest Drupal 8 (^8) stable release)
-`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 8.x drupal8phpunit && cd drupal8phpunit && rm -rf .git && lando start`
+`git clone git@github.com:JPustkuchen/lando-drupal8-test-debugging.git -b 8.x drupal8phpunit && cd drupal8phpunit && rm -rf .git && lando start`
 ##### 9.x (latest Drupal 9 (^9) stable release)
-`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 9.x drupal9phpunit && cd drupal9phpunit && rm -rf .git && lando start`
+`git clone git@github.com:JPustkuchen/lando-drupal8-test-debugging.git -b 9.x drupal9phpunit && cd drupal9phpunit && rm -rf .git && lando start`
 ### Run!
 
 You should now be able to run Drupal 8 / 9 core tests. From the command line it looks like this: 
