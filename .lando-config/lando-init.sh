@@ -55,10 +55,12 @@ fi
 if [ ! -e "/app/web/sites/default/settings.local.php" ]; then
     # Append local.settings.php recognition to settings.php
     cd /app/web/sites/default
+    cp default.settings.php settings.php
     chmod 0644 settings.php
-    echo -e 'if (file_exists($app_root . "/" . $site_path . "/settings.local.php")) {' >> settings.php
-    echo -e '  include $app_root . "/" . $site_path . "/settings.local.php";' >> settings.php
-    echo -e '}' >> settings.php
+    echo "// Added by LANDO App: $LANDO_APP_NAME" >> settings.php
+    echo "if (file_exists(\$app_root . '/' . \$site_path . '/settings.local.php')) {" >> settings.php
+    echo "  include \$app_root . '/' . \$site_path . '/settings.local.php';" >> settings.php
+    echo "}" >> settings.php
     chmod 0444 settings.php
     cd /app
     # Copy our settings.local.php scaffold file over:
