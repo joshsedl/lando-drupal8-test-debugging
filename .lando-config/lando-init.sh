@@ -13,6 +13,8 @@ else
     FIRST_RUN=1
     echo "'web' folder does not exist yet. Starting composer installation (`FIRST_RUN=1`):"
     cd /app
+    echo "!!!!! Removing the .git repository from the directory to intialize a fresh one for the project itself. !!!!!"
+    rm -rf .git
     echo "-- Initializing empty git repository in 'app': --"
     git init
     git add .
@@ -50,24 +52,40 @@ if [ $FIRST_RUN ]; then
 fi
 
 # Copy default scaffold files from assets\scaffold if not yet existing:
-# if [ ! -e "/app/web/sites/default/settings.php" ]; then
-#     cp /app/.lando-config/scaffold/default/sites.default.settings.php /app/web/sites/default/settings.php
-# fi
-# if [ ! -e "/app/web/sites/default/services.yml" ]; then
-#     cp /app/.lando-config/scaffold/default/sites.default.services.yml /app/web/sites/default/services.yml
-# fi
-# if [ ! -e "/app/web/sites/default/__settings.DEVELOPMENT.php" ]; then
-#     cp /app/.lando-config/scaffold/default/sites.default.__settings.DEVELOPMENT.php /app/web/sites/default/__settings.DEVELOPMENT.php
-# fi
-# if [ ! -e "/app/web/sites/default/__services.DEVELOPMENT.yml" ]; then
-#     cp /app/.lando-config/scaffold/default/sites.default.__services.DEVELOPMENT.yml /app/web/sites/default/__services.DEVELOPMENT.yml
-# fi
+if [ ! -e "/app/web/sites/default/settings.local.php" ]; then
+    # Append local.settings.php recognition to settings.php
+    cd /app/web/sites/default
+    chmod 0644 settings.php
+    echo -e 'if (file_exists($app_root . "/" . $site_path . "/settings.local.php")) {' >> settings.php
+    echo -e '  include $app_root . "/" . $site_path . "/settings.local.php";' >> settings.php
+    echo -e '}' >> settings.php
+    chmod 0444 settings.php
+    cd /app
+    # Copy our settings.local.php scaffold file over:
+    cp /app/.lando-config/scaffold/default/settings.local.php /app/web/sites/default/settings.local.php
+fi
+if [ ! -e "/app/web/sites/default/services.local.yml" ]; then
+# Copy our services.local.yml scaffold file over:
+    cp /app/.lando-config/scaffold/default/services.local.yml /app/web/sites/default/services.local.yml
+fi
 # if [ ! -L "/app/files/public" ]; then
 #     ln -s /app/web/sites/default/files /app/files/public
 # fi
 # if [ ! -L "files/simpletest" ]; then
 #     ln -s /app/web/sites/simpletest /app/files/simpletest
 # fi
+
+# Create phpunit.xml and configure.
+if [ ! -f /app/web/core/phpunit.xml ]; then
+    echo '-- Creating phpunit.xml. --'
+    cd /app/web/core
+    cp phpunit.xml.dist phpunit.xml
+    sed -i 's/SIMPLETEST_DB" value=""/SIMPLETEST_DB" value="sqlite:\/\/localhost\/\/app\/web\/sites\/default\/files\/test.sqlite"/' phpunit.xml
+    sed -i 's/SIMPLETEST_BASE_URL" value=""/SIMPLETEST_BASE_URL" value="http:\/\/\'$LANDO_APP_NAME'.'$LANDO_DOMAIN'"/' phpunit.xml
+    sed -i 's/BROWSERTEST_OUTPUT_DIRECTORY" value=""/BROWSERTEST_OUTPUT_DIRECTORY" value="\/app\/web\/sites\/default\/files\/phpunit"/' phpunit.xml
+    sed -i 's/beStrictAboutOutputDuringTests="true"/beStrictAboutOutputDuringTests="false" verbose="true"/' phpunit.xml
+    sed -i 's/<\/phpunit>/<logging><log type="testdox-text" target="\/app\/web\/sites\/default\/files\/testdox.txt"\/><\/logging><\/phpunit>/' phpunit.xml
+fi
 
 if [ $FIRST_RUN ]; then
     echo "-- Installing Drupal site with installation profile: $DRUPAL_INSTALL_PROFILE --"
