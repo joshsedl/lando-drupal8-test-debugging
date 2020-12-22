@@ -62,14 +62,14 @@
       },
       "file-mapping": {
         ".gitignore": {
-          "append": "assets/.gitignore.append.txt",
+          "append": "assets/scaffold/.gitignore.append.txt",
           "force-append": true
         },
         "[web-root]/robots.txt": {
-          "append": "assets/web/robots.txt.append.txt"
+          "append": "assets/scaffold/web/robots.txt.append.txt"
         },
         "[web-root]/.htaccess": {
-          "append": "assets/web/.htaccess.append.txt"
+          "append": "assets/scaffold/web/.htaccess.append.txt"
         }
       }
     },

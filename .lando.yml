@@ -28,7 +28,11 @@ services:
     run:
       # Run global init.sh first with installation profile, afterwards custom
       # initializations.
-      - config/init.sh minimal && config/init.custom.sh
+      - .lando-config/lando-init.sh minimal && .lando-config/lando-init.custom.sh
+    xdebug: true
+    config:
+      # See https://docs.lando.dev/guides/lando-with-vscode.html#getting-started
+      php: .vscode/php.ini
     overrides:
       environment:
         # Enable PHPStorm XDebug with CLI.
@@ -37,7 +41,7 @@ services:
         MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", null, "http://host.docker.internal:4444/wd/hub"]'
       volumes:
           # Fix linux docker host.docker.internal resolving.
-        - 'config/linux-hosts.sh:/scripts/linux-hosts.sh'
+        - '.lando-config/lando-linux-hosts.sh:/scripts/linux-hosts.sh'
   database:
     # Allow external access by a random mysql port.
     # From within other containers you can always access the database via
