@@ -9,11 +9,11 @@
     "chat": "https://www.drupal.org/node/314178"
   },
   "require": {
-    "drupal/core-composer-scaffold": "^9.1",
-    "drupal/core-recommended": "^9.1"
+    "drupal/core-composer-scaffold": "^8.9",
+    "drupal/core-recommended": "^8.9"
   },
   "require-dev": {
-    "drupal/core-dev": "^9.1",
+    "drupal/core-dev": "^8.9",
     "composer/installers": "^1.9",
     "cweagans/composer-patches": "^1.6.5",
     "davidrjonas/composer-lock-diff": "^1.5",
@@ -21,7 +21,7 @@
     "oomphinc/composer-installers-extender": "^2.0",
     "joachim-n/composer-manifest": "^1.1",
     "drush/drush": "^10.0",
-    "phpunit/phpunit": "^8.4.1",
+    "phpunit/phpunit": "^6.0",
     "joomla-projects/selenium-server-standalone": "^3"
   },
   "conflict": {
@@ -33,7 +33,7 @@
     "optimize-autoloader": true,
     "sort-packages": true,
     "platform": {
-      "php": "7.4.13"
+      "php": "7.3.24"
     }
   },
   "scripts": {
@@ -62,14 +62,14 @@
       },
       "file-mapping": {
         ".gitignore": {
-          "append": "assets/.gitignore.append.txt",
+          "append": "assets/scaffold/.gitignore.append.txt",
           "force-append": true
         },
         "[web-root]/robots.txt": {
-          "append": "assets/web/robots.txt.append.txt"
+          "append": "assets/scaffold/web/robots.txt.append.txt"
         },
         "[web-root]/.htaccess": {
-          "append": "assets/web/.htaccess.append.txt"
+          "append": "assets/scaffold/web/.htaccess.append.txt"
         }
       }
     },

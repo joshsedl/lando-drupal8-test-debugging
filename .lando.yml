@@ -1,11 +1,9 @@
-#https://github.com/JPustkuchen/lando-drupal8-test-debugging
+## Lando Drupal 8 Test Debugging: ##
+# https://github.com/JPustkuchen/lando-drupal8-test-debugging
+# You can put local overrides in .lando.local.yml
 name: drupal9phpunit
 # https://docs.devwithlando.io/tutorials/drupal9.html
 recipe: drupal9
-
-# Requires lando 3.0.0-rc2 or higher.
-# You can put local (non-git) overrides in .lando.local.yml
-
 # Add some default configuration for the recipe here. Which will be passed to all the services within the recipe.
 # https://docs.devwithlando.io/recipes/drupal9.html
 config:
@@ -28,7 +26,13 @@ config:
 services:
   appserver:
     run:
-      - config/init.sh minimal && config/init.custom.sh
+      # Run global init.sh first with installation profile, afterwards custom
+      # initializations.
+      - .lando-config/lando-init.sh minimal && .lando-config/lando-init.custom.sh
+    xdebug: true
+    config:
+      # See https://docs.lando.dev/guides/lando-with-vscode.html#getting-started
+      php: .vscode/php.ini
     overrides:
       environment:
         # Enable PHPStorm XDebug with CLI.
@@ -37,19 +41,26 @@ services:
         MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", null, "http://host.docker.internal:4444/wd/hub"]'
       volumes:
           # Fix linux docker host.docker.internal resolving.
-        - 'config/linux-hosts.sh:/scripts/linux-hosts.sh'
+        - '.lando-config/lando-linux-hosts.sh:/scripts/linux-hosts.sh'
   database:
+    # Allow external access by a random mysql port.
+    # From within other containers you can always access the database via
+    # database.drupal9phpunit.lndo.site:3306
     portforward: true
     creds:
-      user: admin
-      password: admin
+      user: drupal
+      password: drupal
       database: drupal9phpunit
   mailhog:
+    # Mailhog can be accessed at "mailhog.drupal9phpunit.lndo.site"
+    # (see proxy below)
     type: mailhog
     portforward: true
     hogfrom:
       - appserver
   phpmyadmin:
+    # PhpMyAdmin can be accessed at "phpmyadmin.drupal9phpunit.lndo.site"
+    # (see proxy below)
     type: phpmyadmin
     hosts:
       - database
