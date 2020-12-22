@@ -37,7 +37,7 @@ if [ $FIRST_RUN ]; then
     # Run composer install based on composer.json in the app directory:
     echo "-- Running composer installation (`composer install  --no-scripts`): --"
     # Install without scripts to prevent problems with composer-lock-diff on install:
-    composer install --no-scripts
+    composer install --no-scripts --ansi
 
     echo "-- Committing composer install results to git: --"
     git add .
@@ -45,7 +45,7 @@ if [ $FIRST_RUN ]; then
 
     echo "-- Running composer update & scaffold (`composer update --with-dependencies`): --"
     # Composer UPDATE required to run scaffold!
-    composer update --with-dependencies
+    composer update --with-dependencies --ansi
     echo "-- Committing composer update results to git: --"
     git add .
     git diff-index --quiet HEAD || git commit -am "Composer update done."
@@ -78,12 +78,11 @@ fi
 #     ln -s /app/web/sites/simpletest /app/files/simpletest
 # fi
 
-
 if [ $FIRST_RUN ]; then
     echo "-- Installing Drupal site with installation profile: $DRUPAL_INSTALL_PROFILE --"
     echo "-- !! Default admin credentials: 'admin' / 'admin' !! --"
     cd /app/web
-    drush site-install $DRUPAL_INSTALL_PROFILE -y --root=/app/web --uri=http://$LANDO_APP_NAME.$LANDO_DOMAIN --account-name=admin --account-pass=admin --site-name=lando-drupal8-test-debugging
+    drush site-install $DRUPAL_INSTALL_PROFILE -y --root=/app/web --uri=http://$LANDO_APP_NAME.$LANDO_DOMAIN --account-name=admin --account-pass=admin --site-name=lando-drupal8-test-debugging --ansi
     cd /app/
 fi
 
