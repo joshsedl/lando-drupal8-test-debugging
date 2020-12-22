@@ -206,7 +206,7 @@ $settings['config_sync_directory'] = '../files/sync';
 
 // Temp directory path:
 $settings["file_temp_path"] = "../tmp";
-$config['system.file']['path.temporary'] = $settings["file_temp_path"];
+// $config['system.file']['path.temporary'] = $settings["file_temp_path"];
 
 // ------------------ LANDO specific settings: ------------------
 if (getenv('LANDO') === 'ON') {
@@ -228,5 +228,5 @@ if (getenv('LANDO') === 'ON') {
     "^$local_hostname$",
   );
 
-  $config['system.site']['name'] = '[LANDO' . getenv('LANDO_APP_NAME') . ']' . $config['system.site']['name'];
+  // $config['system.site']['name'] = '[LANDO' . getenv('LANDO_APP_NAME') . ']' . $config['system.site']['name'];
 }
