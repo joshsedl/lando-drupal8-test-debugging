@@ -28,7 +28,7 @@ services:
     run:
       # Run global init.sh first with installation profile, afterwards custom
       # initializations.
-      - 'bash .lando-config/lando-init.sh minimal && bash .lando-config/lando-init.custom.sh'
+      - .lando-config/lando-init.sh minimal && .lando-config/lando-init.custom.sh
     xdebug: true
     config:
       # See https://docs.lando.dev/guides/lando-with-vscode.html#getting-started
