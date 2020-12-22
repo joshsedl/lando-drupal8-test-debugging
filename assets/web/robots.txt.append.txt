@@ -1,6 +1,0 @@
-# ------------------------------------------------------------------
-# Custom [web-root]/robots.txt additions from /assets folder,
-# appended by composer automatically:
-
-
-# ------------------------------------------------------------------
