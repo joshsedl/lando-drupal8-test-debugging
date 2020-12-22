@@ -28,7 +28,7 @@ services:
     run:
       # Run global init.sh first with installation profile, afterwards custom
       # initializations.
-      - 'bash .lando-config/lando-init.sh minimal && bash .lando-config/lando-init.custom.sh'
+      - .lando-config/lando-init.sh minimal && bash .lando-config/lando-init.custom.sh
     xdebug: true
     config:
       # See https://docs.lando.dev/guides/lando-with-vscode.html#getting-started
@@ -77,7 +77,7 @@ tooling:
     description: "Run PHP Unit tests: lando phpunit"
     cmd: "/app/vendor/bin/phpunit --debug --configuration /app/web/core/phpunit.xml --printer=\\Drupal\\Tests\\Listeners\\HtmlOutputPrinter"
   drush:
-    cmd: "/app/vendor/bin/drush --root=/app/web --uri=http://drupal8phpunit.lndo.site"
+    cmd: "/app/vendor/bin/drush --root=/app/web --uri=http://drupal8phpunit.lndo.site --ansi"
   drupal:
     cmd: "/app/vendor/bin/drupal --root=/app/web"
   xdebug-on:
