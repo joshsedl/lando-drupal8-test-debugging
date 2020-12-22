@@ -19,7 +19,7 @@ drush en -y --root=/app/web automated_cron block block_content ckeditor config c
 # Install contrib modules:
 composer require drupal/admin_toolbar drupal/devel drupal/devel_php drupal/devel_debug_log drupal/coder drupal/examples drupal/stage_file_proxy
 # Enable contrib modules:
-drush en -y --root=/app/web admin_toolbar admin_toolbar_tools admin_toolbar_search devel devel_php devel_debug_log examples stage_file_proxy hacked
+drush en -y --root=/app/web admin_toolbar admin_toolbar_tools admin_toolbar_search devel devel_php devel_debug_log examples stage_file_proxy
 
 git add .
 git diff-index --quiet HEAD || git commit -am "After init.custom.sh"
