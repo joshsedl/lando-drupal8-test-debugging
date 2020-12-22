@@ -17,9 +17,9 @@ That is what you'll like when using this for Drupal development, but so never ru
 
 #### TLDR:
 ##### 8.x (latest Drupal 8 (^8) stable release)
-`git clone git@github.com:JPustkuchen/lando-drupal8-test-debugging.git -b 8.x drupal8phpunit && cd drupal8phpunit && lando start`
+`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 8.x drupal8phpunit && cd drupal8phpunit && lando start`
 ##### 9.x (latest Drupal 9 (^9) stable release)
-`git clone git@github.com:JPustkuchen/lando-drupal8-test-debugging.git -b 9.x drupal9phpunit && cd drupal9phpunit && lando start`
+`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 9.x drupal9phpunit && cd drupal9phpunit && lando start`
 
 ### Run!
 
