@@ -77,18 +77,6 @@ fi
 #     ln -s /app/web/sites/simpletest /app/files/simpletest
 # fi
 
-# Create phpunit.xml and configure.
-if [ ! -f /app/web/core/phpunit.xml ]; then
-    echo '-- Creating phpunit.xml. --'
-    cd /app/web/core
-    cp phpunit.xml.dist phpunit.xml
-    sed -i 's/SIMPLETEST_DB" value=""/SIMPLETEST_DB" value="sqlite:\/\/localhost\/\/app\/web\/sites\/default\/files\/test.sqlite"/' phpunit.xml
-    sed -i 's/SIMPLETEST_BASE_URL" value=""/SIMPLETEST_BASE_URL" value="http:\/\/\'$LANDO_APP_NAME'.'$LANDO_DOMAIN'"/' phpunit.xml
-    sed -i 's/BROWSERTEST_OUTPUT_DIRECTORY" value=""/BROWSERTEST_OUTPUT_DIRECTORY" value="\/app\/web\/sites\/default\/files\/phpunit"/' phpunit.xml
-    sed -i 's/beStrictAboutOutputDuringTests="true"/beStrictAboutOutputDuringTests="false" verbose="true"/' phpunit.xml
-    sed -i 's/<\/phpunit>/<logging><log type="testdox-text" target="\/app\/web\/sites\/default\/files\/testdox.txt"\/><\/logging><\/phpunit>/' phpunit.xml
-fi
-
 if [ $FIRST_RUN ]; then
     echo "-- Installing Drupal site with installation profile: $DRUPAL_INSTALL_PROFILE --"
     echo "-- !! Default admin credentials: 'admin' / 'admin' !! --"
