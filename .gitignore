@@ -40,4 +40,6 @@
 # Log directory
 /log/
 
+# Individual project lando-scripts options (may contain sensitive information)
+.lando-scripts.options.sh
 # ------------------------------------------------------------------
