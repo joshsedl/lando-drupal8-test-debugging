@@ -1,0 +1,3 @@
+[submodule ".lando-config/lando-scripts"]
+	path = .lando-config/lando-scripts
+	url = git@github.com:AaronFeledy/lando-scripts.git
