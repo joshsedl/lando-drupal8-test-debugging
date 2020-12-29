@@ -22,8 +22,15 @@ drush en -y --root=/app/web automated_cron block block_content ckeditor config c
 
 # Install contrib modules:
 echo "-- Require and enable several development modules: --"
-composer require --dev drupal/admin_toolbar drupal/backup_migrate drupal/devel drupal/devel_php drupal/devel_debug_log drupal/coder drupal/examples drupal/stage_file_proxy
+composer require --ansi drupal/admin_toolbar drupal/backup_migrate
+composer require --dev --ansi drupal/devel drupal/devel_php drupal/devel_debug_log drupal/coder drupal/examples drupal/stage_file_proxy kint-php/kint
 drush en -y --root=/app/web admin_toolbar admin_toolbar_tools admin_toolbar_search backup_migrate devel devel_generate devel_php devel_debug_log stage_file_proxy webprofiler
+
+# Install project specific modules & adjustments:
+
+# !! Put your project specific initialization here (optionally) !!
+
+# END Install project specific modules & adjustments:
 
 echo "-- Final lando-init.custom.sh git add & commit: --"
 git add .
