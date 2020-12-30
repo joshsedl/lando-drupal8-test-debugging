@@ -50,6 +50,7 @@ services:
     creds:
       user: drupal
       password: drupal
+      database: database
   mailhog:
     # Mailhog can be accessed at "mailhog.drupal9phpunit.lndo.site"
     # (see proxy below)
