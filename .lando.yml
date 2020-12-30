@@ -47,7 +47,7 @@ services:
     # From within other containers you can always access the database via
     # database.drupal8phpunit.lndo.site:3306
     # or
-    # database.drupal8phpunit.local
+    # database.drupal8phpunit.local:3306
     portforward: true
     creds:
       user: drupal
