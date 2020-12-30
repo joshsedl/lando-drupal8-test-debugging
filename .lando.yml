@@ -46,10 +46,13 @@ services:
     # Allow external access by a random mysql port.
     # From within other containers you can always access the database via
     # database.drupal9phpunit.lndo.site:3306
+    # or
+    # database.drupal9phpunit.internal:3306
     portforward: true
     creds:
       user: drupal
       password: drupal
+      database: database
   mailhog:
     # Mailhog can be accessed at "mailhog.drupal9phpunit.lndo.site"
     # (see proxy below)
