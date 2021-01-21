@@ -66,10 +66,8 @@
 /.gitattributes
 
 # Ignore IDE specific files
-/.vscode/
 /.history/
 /.idea/
-/.vscode/
 *.iml
 *.code-workspace
 
