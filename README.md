@@ -1,7 +1,7 @@
-# lando-drupal8-test-debugging (Drupal 8 / 9 composer based version)
+# lando-drupal8-test-debugging with attached VS-Code container settings (Drupal 8 composer based version)
 
 ## Purpose
-The purpose of this lando "recipe" is to provide an easy setup for Drupal 8 core development, especially writing and debugging tests. This is geared towards PHPStorm, but should also work with other tools.
+The purpose of this lando "recipe" is to provide an easy setup for Drupal 8 core development, with preexisting VSCode "Best Practise" Settings and Extensions for Drupal and PHP programming.
 
 ## Setup
 ### IMPORTANT:
@@ -14,12 +14,15 @@ That is what you'll like when using this for Drupal development, but so never ru
 3. Change into the cloned directory: 'cd lando-drupal8-test-debugging' (or rename it first as in TLDR)
 4. Optionally remove the .git directory (or `lando start` will do it for you!)
 5. Run 'lando start' from inside the app directory.
+6. Install the VS-Code Remote-Development Extension (extension name: ms-vscode-remote.vscode-remote-extensionpack)
+7. Open VSCode -> Go to "View" -> Select "Command Palette" (or press F1)
+8. Start the Command "Remote-Containers: Attach to running Container" and select /drupal8phpunit_appserver_1
+9. After VS-Code attached to the Container, it will ask you if you would like to install recommended Extensions, press install
+10. Your VS-Code has attached to your Container and you are ready to go!
 
 #### TLDR:
 ##### 8.x (latest Drupal 8 (^8) stable release)
-`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 8.x drupal8phpunit && cd drupal8phpunit && lando start`
-##### 9.x (latest Drupal 9 (^9) stable release)
-`git clone https://github.com/JPustkuchen/lando-drupal8-test-debugging.git -b 9.x drupal9phpunit && cd drupal9phpunit && lando start`
+`git clone https://github.com/joshsedl/lando-drupal8-test-debugging.git -b 8.x drupal8phpunit && cd drupal8phpunit && lando start`
 
 ### Run!
 
