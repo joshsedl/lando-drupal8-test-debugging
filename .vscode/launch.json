@@ -9,12 +9,6 @@
       "log": true,
     },
     {
-      "name": "phpunit",
-      "type": "php",
-      "request": "launch",
-      "port": 9001,
-    },
-    {
       "name": "Launch current script",
       "type": "php",
       "request": "launch",
@@ -22,21 +16,5 @@
       "cwd": "${fileDirname}",
       "port": 8080,
     },
-  ],
-  "compounds": [
-    {
-      "name": "PhP",
-      "configurations": [
-        "Listen for XDebug (9000)",
-        "phpunit"
-      ]
-    },
-    {
-      "name": "Step Debugging",
-      "configurations": [
-        "Listen for XDebug (9000)",
-        "Launch current script"
-      ]
-    }
   ]
 }

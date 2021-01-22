@@ -1,4 +1,3 @@
 <?php
 phpinfo();
-
-$test = "haii";
+$test = "Hello World";

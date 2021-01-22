@@ -1,5 +1,6 @@
 	{
 		/*--------------------------------------------------PHP Specific Settings--------------------------------------------------*/
+
 		"emmet.showAbbreviationSuggestions": false,
 		"emmet.showExpandedAbbreviation": "never",
 		"intelephense.files.exclude": [ //more specific excludes so Tests should be recognized
@@ -35,7 +36,9 @@
 		//"phpcs.standard": "Drupal,DrupalPractice",	//phpcs standard
 		//"composer.enabled": true,
 		//"composer.executablePath": "C:\\ProgramData\\ComposerSetup\\bin\\composer.bat",	//not necessary, composer in Docker/Lando
+
 		/*--------------------------------------------------Drupal Specific Settings--------------------------------------------------*/
+
 		"breadcrumbs.enabled": true,
 		"diffEditor.ignoreTrimWhitespace": false,
 		"editor.tabSize": 2,
