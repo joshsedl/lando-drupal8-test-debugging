@@ -44,31 +44,6 @@ NNNB: Sometimes testing becomes very slow. It can help to restart docker, or eve
 
 The test output files can be found in various locations under the /files directory.
 
-### Importing existing sites as dev copy
-TODO - Implement, test & document
-### Debugging in VSCode
-TODO- Test & document
-
-### Debugging in PHPStorm: check your PHPStorm debug settings:
-- To debug tests run from the command line you only need to provide a php server configuration in PhpStorm. Configure path mappings so PHPStorm knows where you are when debugging. Make sure the server is named 'appserver' and you map the top level path to '/app': Preferences > Languages & Frameworks > PHP > Servers ![server-path-mappings](.lando-config/README.images/server-path-mappings.png)
-
-Try and enable xdebug ('lando xdebug-on'), enable your debug listener in PHPStorm, setting a breakpoint in a test and running a test. You should now be able to debug your tests.
-
-NB: Running Docker (for Mac) with a debugger on slows down php quite a bit. Use the tooling provided to quickly switch debugging on/off without restarting your containers: 'lando xdebug-on' and 'lando xdebug-off'.
-NNB: Docker for Mac can be quite slow because of the slow file syncing. The default settings sync your user folder, including all data in ~/Library. To speed up Docker you should only sync folders you need: your project folders, and the composer/ssh/lando config dirs:
-
-![docker-file-sharing](.lando-config/README.images/docker-file-sharing.png)
-
-### Running tests in PHPStorm: check your PHPStorm debug settings:
-- To run tests from the PhpStorm GUI you need to configure a test framework. The test framework needs a CLI interpreter that refers to Docker, so the first thing to do is configure PhpStorm to register Docker: Preferences > Build, Execution, Deployment > Docker ![docker](.lando-config/README.images/docker.png)
-- Register the CLI PHP interpreter from Docker so you can use its debugger: Preferences > Languages & Frameworks > PHP, then click the '...' button after CLI Interpreter, then add a new From Docker interpreter from the correct Docker image ![cli-interpreters](.lando-config/README.images/cli-interpreters.png)
-- Change the default Docker container settings so the network and path mapping correspond to lando's defaults: Preferences > Languages & Frameworks > PHP, then click the folder icon after button after the line "Docker container" ![docker-container](.lando-config/README.images/docker-container.png)
-- Configure the test framework so PHPStorm can run tests using the PHPStorm GUI: Preferences > Languages & Frameworks > PHP > Test Frameworks, add a PHPUnit by Remote Interpreter and choose the Docker interpreter. Make sure you set the autoload script, config file and bootstrap file using paths that are local to the PHPStorm docker helper container as shown: ![test-framework](.lando-config/README.images/test-framework.png)
-
-In PHPStorm try to right-click a test function and select 'run'. Running tests via the PHPStorm GUI currently only works with Unit and Kernel tests.
-
-- If you are having trouble getting this to work check the PHP debug settings, especially the max simultaneous connections: Preferences > Languages & Frameworks > PHP > Debug ![debug](.lando-config/README.images/debug.png)
-
 ### The files in this package do the following:
 - **.lando.yml**: The lando file that spins up the apache/php/database containers and set some defaults. Here the init.sh script is called after the containers are up.
 - **.lando.local.yml**: *For modifications* Allows custom modifications to lando.yml without overwriting .lando.yml.
