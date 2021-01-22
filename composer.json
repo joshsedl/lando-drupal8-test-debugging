@@ -9,7 +9,7 @@
     "chat": "https://www.drupal.org/node/314178"
   },
   "require": {
-    "drupal/admin_toolbar": "^2.4",
+    "drupal/admin_toolbar": "^3.0",
     "drupal/backup_migrate": "^4.1",
     "drupal/core-composer-scaffold": "^8.9",
     "drupal/core-recommended": "^8.9"
