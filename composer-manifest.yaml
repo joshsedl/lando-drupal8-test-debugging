@@ -32,7 +32,7 @@ packages:
     doctrine/inflector: v1.2.0
     doctrine/instantiator: 1.4.0
     doctrine/lexer: 1.0.2
-    drupal/admin_toolbar: 2.4.0
+    drupal/admin_toolbar: 3.0.0
     drupal/backup_migrate: 4.1.0
     drupal/coder: 8.3.12
     drupal/core: 8.9.13
