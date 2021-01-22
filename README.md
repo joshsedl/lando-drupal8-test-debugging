@@ -24,26 +24,6 @@ That is what you'll like when using this for Drupal development, but so never ru
 ##### 8.x (latest Drupal 8 (^8) stable release)
 `git clone https://github.com/joshsedl/lando-drupal8-test-debugging.git -b 8.x drupal8phpunit && cd drupal8phpunit && lando start`
 
-### Run!
-
-You should now be able to run Drupal 8 / 9 core tests. From the command line it looks like this:
-```bash
-# unit test
-lando phpunit "/app/web/core/modules/toolbar/tests/src/Unit/PageCache/AllowToolbarPathTest.php"
-# kernel test
-lando phpunit "/app/web/core/modules/field_ui/tests/src/Kernel/EntityDisplayTest.php"
-# functional test
-lando phpunit "/app/web/core/modules/comment/tests/src/Functional/CommentAnonymousTest.php"
-# functional javascript test
-sh run-selenium.sh
-lando phpunit "/app/web/core/tests/Drupal/FunctionalJavascriptTests/Tests/JSWebWithWebDriverAssertTest.php"
-```
-NB: You need to provide the path to the test file as seen in the container, not the host.
-NNB: For Functional Javascript tests you need to start the selenium server before running the test. Selenium requires that you have java installed on your host.
-NNNB: Sometimes testing becomes very slow. It can help to restart docker, or even your entire machine.
-
-The test output files can be found in various locations under the /files directory.
-
 ### The files in this package do the following:
 - **.lando.yml**: The lando file that spins up the apache/php/database containers and set some defaults. Here the init.sh script is called after the containers are up.
 - **.lando.local.yml**: *For modifications* Allows custom modifications to lando.yml without overwriting .lando.yml.
