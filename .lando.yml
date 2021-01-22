@@ -29,7 +29,7 @@ services:
       # Run global init.sh first with installation profile, afterwards custom
       # initializations.
       - .lando-config/lando-init.sh minimal && bash .lando-config/lando-init.custom.sh
-    xdebug: true
+    xdebug: debug
     config:
       # See https://docs.lando.dev/guides/lando-with-vscode.html#getting-started
       php: .lando-config/appserver.php.ini
@@ -37,6 +37,8 @@ services:
       environment:
         # Enable PHPStorm XDebug with CLI.
         PHP_IDE_CONFIG: "serverName=appserver"
+        #Override XDEBUG_CONFIG for client_host "attached Container" settings
+        XDEBUG_CONFIG: "client_host=host.docker.internal"
         # Set the Mink webdriver args.
         MINK_DRIVER_ARGS_WEBDRIVER: '["chrome", null, "http://host.docker.internal:4444/wd/hub"]'
       volumes:

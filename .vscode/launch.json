@@ -1,33 +1,42 @@
 {
   "version": "0.2.0",
-  "compounds": [
-    {
-      "name": "Launch & XDebug",
-      "configurations": [
-        "Launch",
-        "Listen for XDebug"
-      ]
-    },
-  ],
   "configurations": [
-
     {
-      "name": "Launch",
+      "name": "Listen for XDebug (9000)",
+      "type": "php",
+      "request": "launch",
+      "port": 9000,
+      "log": true,
+    },
+    {
+      "name": "phpunit",
+      "type": "php",
+      "request": "launch",
+      "port": 9001,
+    },
+    {
+      "name": "Launch current script",
       "type": "php",
       "request": "launch",
       "program": "${file}",
       "cwd": "${fileDirname}",
       "port": 8080,
     },
+  ],
+  "compounds": [
     {
-      "name": "Listen for XDebug",
-      "type": "php",
-      "request": "launch",
-      "port": 9000,
-      "log": false,
-      "pathMappings": {
-        "/app/": "${workspaceFolder}/",
-      }
+      "name": "PhP",
+      "configurations": [
+        "Listen for XDebug (9000)",
+        "phpunit"
+      ]
+    },
+    {
+      "name": "Step Debugging",
+      "configurations": [
+        "Listen for XDebug (9000)",
+        "Launch current script"
+      ]
     }
   ]
 }
