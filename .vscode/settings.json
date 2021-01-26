@@ -39,6 +39,18 @@
 
 		/*--------------------------------------------------Drupal Specific Settings--------------------------------------------------*/
 
+		"intelephense.environment.includePaths": [
+			"web/core/includes"
+		],
+		"intelephense.files.associations": [
+			"*.inc",
+			"*.theme",
+			"*.install",
+			"*.module",
+			"*.profile",
+			"*.php",
+			"*.phtml"
+		],
 		"breadcrumbs.enabled": true,
 		"diffEditor.ignoreTrimWhitespace": false,
 		"editor.tabSize": 2,
