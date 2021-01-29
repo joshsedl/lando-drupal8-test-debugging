@@ -12,7 +12,8 @@
     "drupal/admin_toolbar": "^3.0",
     "drupal/backup_migrate": "^4.1",
     "drupal/core-composer-scaffold": "^8.9",
-    "drupal/core-recommended": "^8.9"
+    "drupal/core-recommended": "^8.9",
+    "drupal/redirect": "1.x-dev"
   },
   "require-dev": {
     "composer/installers": "^1.9",
