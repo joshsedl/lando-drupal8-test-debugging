@@ -43,6 +43,7 @@ packages:
     drupal/devel_debug_log: 1.0.0
     drupal/devel_php: 1.3.0
     drupal/examples: 3.0.1
+    drupal/redirect: 'dev-1.x:e5201ca519bd947ee5478d9dee88af0c5d6fec89'
     drupal/stage_file_proxy: 1.1.0
     drush/drush: 10.3.6
     easyrdf/easyrdf: 0.9.1
