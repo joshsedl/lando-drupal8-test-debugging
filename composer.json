@@ -9,6 +9,7 @@
     "chat": "https://www.drupal.org/node/314178"
   },
   "require": {
+    "cweagans/composer-patches": "~1.0",
     "drupal/admin_toolbar": "^3.0",
     "drupal/backup_migrate": "^4.1",
     "drupal/core-composer-scaffold": "^8.9",
@@ -17,7 +18,6 @@
   },
   "require-dev": {
     "composer/installers": "^1.9",
-    "cweagans/composer-patches": "^1.6.5",
     "davidrjonas/composer-lock-diff": "^1.5",
     "drupal/coder": "^8.3",
     "drupal/core-dev": "^8.9",
