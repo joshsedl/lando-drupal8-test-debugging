@@ -40,6 +40,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
+    "preferred-install": "source",
     "optimize-autoloader": true,
     "sort-packages": true,
     "platform": {
@@ -66,7 +67,7 @@
     ]
   },
   "extra": {
-    "patches-file": "composer.patches.json",
+    "patches-file": "app/composer.patches.json",
     "drupal-scaffold": {
       "locations": {
         "web-root": "web/"
