@@ -1,0 +1,7 @@
+{
+  "patches": {
+    "drupal/redirect": {
+      "redirect_404_delete_button": "https://www.drupal.org/files/issues/2018-04-02/redirect_404-2922444-11.patch"
+    }
+  }
+}
