@@ -6,7 +6,7 @@ packages:
     behat/mink-selenium2-driver: v1.4.0
     chi-teck/drupal-code-generator: 1.33.1
     composer/ca-bundle: 1.2.9
-    composer/composer: 1.10.19
+    composer/composer: 1.10.20
     composer/installers: v1.10.0
     composer/semver: 1.5.1
     composer/spdx-licenses: 1.5.5
@@ -141,7 +141,7 @@ packages:
     symfony/serializer: v3.4.41
     symfony/translation: v3.4.41
     symfony/validator: v3.4.41
-    symfony/var-dumper: v4.4.18
+    symfony/var-dumper: v4.4.19
     symfony/yaml: v3.4.41
     szeidler/composer-patches-cli: 1.0.2
     theseer/tokenizer: 1.2.0
