@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d37f6ac73dd254742ecc81884ad8d995",
+    "content-hash": "894ff873fb98400f8bfe5b00e137c504",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1156,8 +1156,7 @@
             "homepage": "https://www.drupal.org/project/redirect",
             "support": {
                 "source": "https://git.drupalcode.org/project/redirect"
-            },
-            "time": "2020-07-02T13:07:11+00:00"
+            }
         },
         {
             "name": "easyrdf/easyrdf",
