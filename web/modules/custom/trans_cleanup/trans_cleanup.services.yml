@@ -1,0 +1,4 @@
+services:
+  trans_cleanup.query_helper:
+    class: Drupal\fences\QueryHelper  #Was sind fences?
+    arguments: []

@@ -1,0 +1,5 @@
+trans_cleanup.form:
+    title: 'XX Slides'
+    description: 'Administer XX.'
+    parent: system.admin_config_content
+    route_name: trans_cleanup.site

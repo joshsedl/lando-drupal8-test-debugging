@@ -15,8 +15,6 @@ config:
   composer_version: '2.0.8'
   # Set the webroot dir.
   webroot: web
-  # Enable xdebug using "lando xdebug-on" tooling defined below.
-  xdebug: true
   # Database
   database: mariadb
   # Drush
@@ -29,7 +27,6 @@ services:
       # Run global init.sh first with installation profile, afterwards custom
       # initializations.
       - .lando-config/lando-init.sh minimal && bash .lando-config/lando-init.custom.sh
-    xdebug: debug
     config:
       # See https://docs.lando.dev/guides/lando-with-vscode.html#getting-started
       php: .lando-config/appserver.php.ini

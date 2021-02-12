@@ -14,7 +14,8 @@
     "drupal/backup_migrate": "^4.1",
     "drupal/core-composer-scaffold": "^8.9",
     "drupal/core-recommended": "^8.9",
-    "drupal/redirect": "1.x-dev"
+    "drupal/redirect": "1.x-dev",
+    "drupal/webform": "^6.0"
   },
   "require-dev": {
     "composer/installers": "^1.9",
