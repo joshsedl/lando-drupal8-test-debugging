@@ -3,3 +3,5 @@ type: 'module'
 description: 'Provides help to cleanup unnecessary and expired database entries'
 core: 8.x
 package: custom
+dependencies:
+  - drupal:locale

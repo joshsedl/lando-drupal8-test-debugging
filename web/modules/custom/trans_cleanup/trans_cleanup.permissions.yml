@@ -1,4 +1,8 @@
 access trans_cleanup form:
-  title: 'Access Database Translation Clenaup form'
-  description: 'Allows to access and change Database Translation Clenaup form.'
+  title: 'Access Database Translation Cleanup form'
+  description: 'Allows to access and change Database Translation Cleanup form.'
+  restrict access: TRUE
+access trans_cleanup delete:
+  title: 'Access Database Translation Cleanup delete form'
+  description: 'Allows to access and change Database Translation Clenaup delete form.'
   restrict access: TRUE

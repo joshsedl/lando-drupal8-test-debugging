@@ -1,5 +1,5 @@
 trans_cleanup.form:
-    title: 'XX Slides'
-    description: 'Administer XX.'
-    parent: system.admin_config_content
-    route_name: trans_cleanup.site
+    title: 'Translation Cleanup'
+    description: 'Administer the Translation Cleanup form'
+    parent: locale.translate_page
+    route_name: trans_cleanup.form

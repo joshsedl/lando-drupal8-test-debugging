@@ -5,3 +5,10 @@ trans_cleanup.form:
     _title: 'Database Translation Cleanup'
   requirements:
     _permission: 'access trans_cleanup form'
+trans_cleanup.delete:
+  path: '/admin/config/development/trans_cleanup/delete'
+  defaults:
+    _form: '\Drupal\trans_cleanup\Form\TransCleanupDeleteForm'
+    _title: 'Confirm Deletion'
+  requirements:
+    _permission: 'access trans_cleanup delete'
