@@ -18,7 +18,7 @@ packages:
     consolidation/output-formatters: 3.5.1
     consolidation/robo: 1.4.13
     consolidation/self-update: 1.2.0
-    consolidation/site-alias: 3.0.1
+    consolidation/site-alias: 3.1.0
     consolidation/site-process: 2.1.0
     container-interop/container-interop: 1.2.0
     cweagans/composer-patches: 1.7.0
@@ -46,9 +46,10 @@ packages:
     drupal/redirect: 'dev-1.x:e5201ca519bd947ee5478d9dee88af0c5d6fec89'
     drupal/stage_file_proxy: 1.1.0
     drupal/webform: 6.0.1
-    drush/drush: 10.3.6
+    drush/drush: 10.4.0
     easyrdf/easyrdf: 0.9.1
     egulias/email-validator: 2.1.17
+    enlightn/security-checker: v1.5.1
     fabpot/goutte: v3.2.3
     grasmash/expander: 1.0.0
     grasmash/yaml-expander: 1.4.0
@@ -67,7 +68,7 @@ packages:
     laminas/laminas-feed: 2.12.2
     laminas/laminas-stdlib: 3.2.1
     laminas/laminas-zendframework-bridge: 1.0.4
-    league/container: 2.4.1
+    league/container: 2.5.0
     masterminds/html5: 2.3.0
     mikey179/vfsstream: v1.6.8
     myclabs/deep-copy: 1.10.2
@@ -134,7 +135,7 @@ packages:
     symfony/polyfill-php56: v1.17.0
     symfony/polyfill-php70: v1.17.0
     symfony/polyfill-php72: v1.17.0
-    symfony/polyfill-php80: v1.22.0
+    symfony/polyfill-php80: v1.22.1
     symfony/polyfill-util: v1.17.0
     symfony/process: v3.4.41
     symfony/psr-http-message-bridge: v1.1.2
