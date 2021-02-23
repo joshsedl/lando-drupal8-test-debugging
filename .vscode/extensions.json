@@ -8,6 +8,7 @@
     "phproberto.vscode-php-getters-setters",
     "mehedidracula.php-namespace-resolver",
     "neilbrayfield.php-docblocker",
+    "wayou.vscode-todo-highlight",
     //"shevaua.phpcs", 			needs php code-sniffer
     //"junstyle.php-cs-fixer"	needs php code sniffer
 

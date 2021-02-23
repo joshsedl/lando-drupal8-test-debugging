@@ -1,4 +1,0 @@
-services:
-  trans_cleanup.query_helper:
-    class: Drupal\trans_cleanup\QueryHelper
-    arguments: []

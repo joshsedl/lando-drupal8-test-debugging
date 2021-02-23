@@ -1,5 +1,0 @@
-trans_cleanup.form:
-    title: 'Translation Cleanup'
-    description: 'Administer the Translation Cleanup form'
-    parent: locale.translate_page
-    route_name: trans_cleanup.form
